@@ -7,7 +7,7 @@ const path = require('path');
  */
 module.exports = (app) => {
   const stream = fs.createWriteStream(
-    path.join(__dirname, '../../__logs/access.log'),
+    path.join(__dirname, '../__logs/access.log'),
     { flags: 'a' }
   );
 
