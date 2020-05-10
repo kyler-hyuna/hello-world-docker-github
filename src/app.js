@@ -13,6 +13,8 @@ app.get('/', (req, res) => {
   });
 });
 
+app.get('/monitor', (req, res) => res.status(200).send('ok'));
+
 app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);
 });
