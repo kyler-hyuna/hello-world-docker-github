@@ -1,0 +1,19 @@
+name: Staging Deploy
+
+on:
+  release:
+    types: [prereleased]
+
+jobs:
+  build:
+    name: Build Docker Image
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: docker/build-push-action@v1
+        with:
+          username: ${{ github.actor }}
+          password: ${{ github.token }}
+          registry: docker.pkg.github.com
+          repository: kyler-hyuna/hello-world-docker-github/hello-world
+          tag_with_ref: true
