@@ -1,11 +1,12 @@
 require('dotenv').config();
 
 const express = require('express');
+const morgan = require('morgan');
 
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-require('./util/logger')(app);
+app.use(morgan('combined'));
 
 app.get('/', (req, res) => {
   res.send({
