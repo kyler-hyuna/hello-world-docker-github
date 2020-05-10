@@ -1,0 +1,23 @@
+name: Test
+
+on: pull_request
+  branches:
+    - master
+
+jobs:
+  ts:
+    name: Typescript
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: yarn
+      - run: yarn test
+
+  eslint:
+    name: Eslint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: yarn
+      - run: yarn lint
+      
