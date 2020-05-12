@@ -14,6 +14,12 @@ app.get('/', (req, res) => {
   });
 });
 
+app.get('/random', (req, res) => {
+  res.send({
+    message: Math.floor(Math.random() * 10),
+  });
+});
+
 app.get('/monitor', (req, res) => res.status(200).send('ok'));
 
 app.listen(PORT, () => {
