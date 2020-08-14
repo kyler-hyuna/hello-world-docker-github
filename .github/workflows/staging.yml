@@ -4,10 +4,6 @@ on:
   release:
     types: [prereleased]
 
-env:
-  IMAGE: ${{ GITHUB_REPOSITORY }}/corp-api/${{ GITHUB_REF:10 }}
-  IMAGE_TAG: ${{ GITHUB_REF:10 }}
-
 jobs:
   package:
     name: Build and Test
@@ -24,6 +20,13 @@ jobs:
 
       - run: yarn lint
       - run: yarn test
+
+      - uses: elgohr/Publish-Docker-Github-Action@master
+        with:
+          name: ${{ env.GITHUB_REPOSITORY }}/hello-world
+          username: ${{ github.actor }}
+          password: ${{ github.token }}
+          registry: docker.pkg.github.com
 
       - uses: docker/build-push-action@v1
         with:
