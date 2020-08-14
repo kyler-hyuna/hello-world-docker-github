@@ -24,12 +24,13 @@ jobs:
       - run: yarn lint
       - run: yarn test
 
-      - uses: elgohr/Publish-Docker-Github-Action@2.19
+      - uses: docker/build-push-action@v1
         with:
-          name: ${{ github.repository	}}/hello-world
           username: ${{ github.actor }}
           password: ${{ github.token }}
           registry: docker.pkg.github.com
+          repository: ${{ github.repository	}}/corp-api
+          tag_with_ref: true
   # deploy:
   #   name: Deploy to ECS
   #   runs-on: ubuntu-latest
