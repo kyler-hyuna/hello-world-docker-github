@@ -5,7 +5,7 @@ on:
     types: [prereleased]
 
 env:
-  IMAGE: ${{ github.repository }}/corp-api/${{ GITHUB_REF:10 }}
+  IMAGE: ${{ github.repository }}/corp-api/${{ github.ref }}
 
 jobs:
   package:
