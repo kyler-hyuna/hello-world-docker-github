@@ -1,6 +1,11 @@
 name: Staging Deploy
 
-on: push
+on:
+  release:
+    types: [prereleased]
+
+env:
+  IMAGE: ${{ github.repository }}/corp-api/${{ GITHUB_REF:10 }}
 
 jobs:
   package:
