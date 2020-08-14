@@ -4,7 +4,7 @@ ENV NODE_ENV production
 
 WORKDIR /usr/app
 COPY package.json yarn.lock ./
-RUN yarn install --production --silent 
+RUN yarn --prod --frozen-lockfile --silent 2>/dev/null
 
 COPY src/ src/
 
