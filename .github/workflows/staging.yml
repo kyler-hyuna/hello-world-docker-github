@@ -24,7 +24,7 @@ jobs:
       # - run: yarn lint
       # - run: yarn test
 
-      - uses: elgohr/Publish-Docker-Github-Action@master
+      - uses: elgohr/Publish-Docker-Github-Action@2.19
         with:
           name: ${{ github.repository	}}/hello-world
           username: ${{ github.actor }}
